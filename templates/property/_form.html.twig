@@ -1,0 +1,217 @@
+{{ form_start(form) }}
+<div class="container m-5">
+    <h1 class="mt-5">Création d'une Property</h1>
+
+   {# read and display just one flash message type #}
+   {% for message in app.flashes('success') %}
+   <div class="alert alert-success">
+       {{ message }}
+   </div>
+   {% endfor %}
+   {{ form_start(form) }}
+   <div class="container">{{ form_row(form.image, {label_attr: {class: 'image'} }) }}</div>
+   <div class="container">
+    <div class="row">
+       <div class="form-group col-6">
+        {{ form_label(form.category) }}
+        {{ form_widget(form.category) }}
+        <div class="form-error">
+           {{ form_errors(form.category) }}
+        </div>
+        </div>
+
+        <div class="form-group col-6">
+        {{ form_label(form.type) }}
+        {{ form_widget(form.type) }}
+        <div class="form-error">
+        {{ form_errors(form.type) }}
+        </div>
+        </div>
+
+        <div class="form-group col-6">
+        {{ form_label(form.surface) }}
+       {{ form_widget(form.surface) }}
+        <div class="form-error">
+           {{ form_errors(form.surface) }}
+        </div>
+        </div>
+
+<div class="form-group col-6">
+{{ form_label(form.status) }}
+{{ form_widget(form.status) }}
+<div class="form-error">
+{{ form_errors(form.status) }}
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="form-group">
+    {{ form_label(form.price) }}
+    {{ form_widget(form.price) }}
+    <div class="form-error">
+    {{ form_errors(form.price) }}
+    </div>
+</div>
+
+
+<div class="form-group">
+    {{ form_label(form.description) }}
+    {{ form_widget(form.description) }}
+    <div class="form-error">
+    {{ form_errors(form.description) }}
+    </div>
+    </div>
+
+
+    <div class="container">
+    <div class="row">
+<div class="form-group col">
+{{ form_label(form.num_rooms) }}
+{{ form_widget(form.num_rooms) }}
+<div class="form-error">
+{{ form_errors(form.num_rooms) }}
+</div>
+</div>
+
+<div class="form-group col">
+{{ form_label(form.num_bathrooms) }}
+{{ form_widget(form.num_bathrooms) }}
+<div class="form-error">
+{{ form_errors(form.num_bathrooms) }}
+</div>
+</div>
+
+<div class="form-group col">
+{{ form_label(form.num_parkings) }}
+{{ form_widget(form.num_parkings) }}
+<div class="form-error">
+{{ form_errors(form.num_parkings) }}
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+<div class="form-group col">
+{{ form_label(form.num_stage) }}
+{{ form_widget(form.num_stage) }}
+<div class="form-error">
+{{ form_errors(form.num_stage) }}
+</div>
+</div>
+
+<div class="form-group col">
+{{ form_label(form.numero_stage) }}
+{{ form_widget(form.numero_stage) }}
+<div class="form-error">
+{{ form_errors(form.numero_stage) }}
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+<div class="form-group col-2">
+    {{ form_label(form.numero_way) }}
+    {{ form_widget(form.numero_way) }}
+    <div class="form-error">
+    {{ form_errors(form.numero_way) }}
+    </div>
+</div>
+
+<div class="form-group col-4">
+    {{ form_label(form.type_way) }}
+    {{ form_widget(form.type_way) }}
+    <div class="form-error">
+    {{ form_errors(form.type_way) }}
+    </div>
+</div>
+
+<div class="form-group col-6">
+    {{ form_label(form.name_way) }}
+    {{ form_widget(form.name_way) }}
+    <div class="form-error">
+    {{ form_errors(form.name_way) }}
+    </div>
+</div>
+</div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+<div class="form-group col">
+    {{ form_label(form.city) }}
+    {{ form_widget(form.city) }}
+    <div class="form-error">
+    {{ form_errors(form.city) }}
+    </div>
+</div>
+
+<div class="form-group col">
+    {{ form_label(form.zipecode) }}
+    {{ form_widget(form.zipecode) }}
+    <div class="form-error">
+    {{ form_errors(form.zipecode) }}
+    </div>
+</div>
+
+
+<div class="form-group col">
+    {{ form_label(form.departement) }}
+    {{ form_widget(form.departement) }}
+    <div class="form-error">
+    {{ form_errors(form.departement) }}
+    </div>
+</div>
+
+<div class="form-group col">
+    {{ form_label(form.region) }}
+    {{ form_widget(form.region) }}
+    <div class="form-error">
+    {{ form_errors(form.region) }}
+    </div>
+</div>
+</div>
+</div>
+<div class="container">{{ form_row(form.map, {label_attr: {class: 'image'} }) }}</div>
+
+
+<div class="container">
+    <div class="row">
+<div class="col-4">{{ form_row(form.internet, {label_attr: {class: 'checkbox-custom'} }) }}</div>
+<div class="col-4">{{ form_row(form.balcon, {label_attr: {class: 'checkbox-custom'} }) }}</div>
+<div class="col-4">{{ form_row(form.salle_sport, {label_attr: {class: 'checkbox-custom'} }) }}</div>
+<div class="col-4">{{ form_row(form.piscine, {label_attr: {class: 'checkbox-custom'} }) }}</div>
+<div class="col-4">{{ form_row(form.cuisine, {label_attr: {class: 'checkbox-custom'} }) }}</div>
+<div class="col-4">{{ form_row(form.security_cam, {label_attr: {class: 'checkbox-custom'} }) }}</div>
+</div>
+</div>
+
+
+
+
+<div class="form-group">
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+
+</div>
+
+{{ form_end(form) }}
+</div>
+
+
+
+
+
+
+
+
+
+   

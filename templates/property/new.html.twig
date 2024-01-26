@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Property{% endblock %}
+
+{% block body %}
+
+    {{ include('property/_form.html.twig') }}
+
+    <a class="btn btn-warning mt-3" href="{{ path('app_property_index') }}" role="button">Back to list</a>
+    </div>
+{% endblock %}

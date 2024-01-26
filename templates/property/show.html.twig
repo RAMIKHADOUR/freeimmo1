@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Property{% endblock %}
+
+{% block body %}
+
+
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center mt-5">
+    <div class="col">
+        
+            <div class="card mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200"
+                    aria-label="Placeholder: Image cap" focusable="false" role="img"
+                    preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180"
+                    style="font-size:1.125rem;text-anchor:middle">
+                    <rect width="100%" height="100%" fill="#868e96"></rect>
+                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                </svg>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+    {% for property in property %}
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ property.category }}</li>
+                    <li class="list-group-item">{{ property.type }}</li>
+                    <li class="list-group-item">{{ property.surface }}</li>
+                    <li class="list-group-item">{{ property.price }}</li>
+                    <li class="list-group-item">{{ property.adresse }}</li>
+                    <li class="list-group-item">{{ property.city}}</li>
+                    <li class="list-group-item">{{ property.status }}</li>
+                    <li class="list-group-item">{{ property.zipecode }}</li>
+                    <li class="list-group-item">{{ property.picture}}</li>
+                  
+                </ul>
+                {% endfor %}
+                <div class="card-body">
+                <a class="btn btn-primary m-3" href="{{ path('app_property_edit', {'id': property.id}) }}" role="button">edit</a>
+                
+                {{ include('property/_delete_form.html.twig') }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="mt-5">
+    <h1>Property</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ property.id }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ property.category }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ property.type }}</td>
+            </tr>
+            <tr>
+                <th>Surface</th>
+                <td>{{ property.surface }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ property.status }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ property.price }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ property.adresse }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ property.city }}</td>
+            </tr>
+            <tr>
+                <th>Zipecode</th>
+                <td>{{ property.zipecode }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ property.picture }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ property.createdAt ? property.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary m-3" href="{{ path('app_property_index') }}" role="button">Back to list</a>
+
+    <a class="btn btn-primary m-3" href="{{ path('app_property_edit', {'id': property.id}) }}" role="button">edit</a>
+
+    {{ include('property/_delete_form.html.twig') }}
+
+    </div>
+{% endblock %}
